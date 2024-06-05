@@ -31,11 +31,22 @@ export default function Page({ params }: any) {
             .catch((error) => console.error(error));
     }
 
+
+    async function fetchOnButtonClick(){
+        try {
+            const response=await axios.get("http://localhost:9091/test")
+            console.log(response,"response from get request")
+        } catch (error) {
+            
+        }
+    }
     return (
         <main>
             <p>{`${str1 == params.id}`}</p>
             <p>-----  code --------</p>
             {params.id}
+
+            <button onClick={fetchOnButtonClick} className="bg-blue-500 text-white px-4 py-2 text-sm">Fetch</button>
         </main>
     )
 }
